@@ -1,45 +1,45 @@
 package linked_list
 
-type ListNode struct {
+type Node struct {
 	Val  interface{}
-	Next *ListNode
+	Next *Node
 }
 
 /*
   Append Node behind giving Node
- */
-func (head *ListNode) Append(i interface{}){
+*/
+func (head *Node) Append(i interface{}) {
 	if head == nil {
 		head.Val = i
 	}
-	var cur ListNode
+	var cur Node
 	cur.Val = i
 	cur.Next = head.Next
 	head.Next = &cur
 }
 
-func (head *ListNode) GetLength() int{
-	if head == nil{
+func (head *Node) GetLength() int {
+	if head == nil {
 		return 0
 	}
 
 	iterator := head
 	var length int = 1
-	for iterator.Next != nil{
-		length ++
+	for iterator.Next != nil {
+		length++
 		iterator = iterator.Next
 	}
 	return length
 
 }
 
-func (head *ListNode) GetSlice() []interface{}{
-	if head == nil{
+func (head *Node) GetSlice() []interface{} {
+	if head == nil {
 		return nil
 	}
-	slice := make([]interface{},20)
+	slice := make([]interface{}, 20)
 	iterator := head
-	for iterator.Next != nil{
+	for iterator.Next != nil {
 		slice = append(slice, iterator.Val)
 		iterator = iterator.Next
 	}
