@@ -2,7 +2,7 @@ package linked_list
 
 import "testing"
 
-func init(){
+func init() {
 	node3.Val = 3
 	node3.Next = nil
 	node2.Val = 2
@@ -11,7 +11,7 @@ func init(){
 	node1.Next = &node2
 }
 
-func TestReverseList(t *testing.T){
+func TestReverseList(t *testing.T) {
 	//_ = ListNode{1, &node2}
 	lst := node1.GetSlice()
 	t.Log(lst)

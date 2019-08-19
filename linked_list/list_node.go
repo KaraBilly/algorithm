@@ -8,17 +8,17 @@ type Node struct {
 /*
   Append Node behind giving Node
 */
-func (head *Node) Append(i interface{}) {
+func (head *ListNode) Append(i int) {
 	if head == nil {
 		head.Val = i
 	}
-	var cur Node
+	var cur ListNode
 	cur.Val = i
 	cur.Next = head.Next
 	head.Next = &cur
 }
 
-func (head *Node) GetLength() int {
+func (head *ListNode) GetLength() int {
 	if head == nil {
 		return 0
 	}
@@ -33,7 +33,7 @@ func (head *Node) GetLength() int {
 
 }
 
-func (head *Node) GetSlice() []interface{} {
+func (head *ListNode) GetSlice() []interface{} {
 	if head == nil {
 		return nil
 	}
@@ -43,8 +43,6 @@ func (head *Node) GetSlice() []interface{} {
 		slice = append(slice, iterator.Val)
 		iterator = iterator.Next
 	}
-	if iterator.Val != nil {
-		slice = append(slice, iterator.Val)
-	}
+	slice = append(slice, iterator.Val)
 	return slice
 }
